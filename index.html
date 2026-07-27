@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Glamour Cake | Cakes, Cheesecakes &amp; Donuts Made To Be Different, Lyttelton</title>
+<meta name="description" content="Glamour Cake in Lyttelton, Christchurch. Handmade celebration cakes, gourmet cheesecakes, donuts made to be different and fresh pies. Order custom cakes with Bree Scott." />
+<meta name="theme-color" content="#3a2419" />
+<meta property="og:title" content="Glamour Cake | Lyttelton, Christchurch" />
+<meta property="og:description" content="Handmade cakes, cheesecakes and donuts made to be different, right on Norwich Quay in Lyttelton." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#f7efe6;
+    --cream-2:#efe3d4;
+    --cocoa:#3a2419;
+    --cocoa-soft:#54382a;
+    --rose:#c98a7d;
+    --rose-deep:#b06f61;
+    --gold:#c9a86a;
+    --ink:#2a1c14;
+    --muted:#7a6555;
+    --white:#fffdfa;
+    --shadow:0 18px 50px -20px rgba(58,36,25,.45);
+    --radius:20px;
+    --serif:"Cormorant Garamond",Georgia,serif;
+    --sans:"Jost",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--cream);
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacing:.3px}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 22px}
+  .eyebrow{
+    font-family:var(--sans);text-transform:uppercase;letter-spacing:.28em;
+    font-size:.72rem;font-weight:600;color:var(--rose-deep);margin-bottom:14px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;justify-content:center;
+    font-family:var(--sans);font-weight:500;font-size:1rem;letter-spacing:.02em;
+    padding:15px 28px;border-radius:999px;min-height:52px;cursor:pointer;border:none;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+  .btn svg{width:20px;height:20px}
+  .btn-primary{background:var(--cocoa);color:var(--cream)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(58,36,25,.6)}
+  .btn-gold{background:var(--gold);color:var(--cocoa)}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(201,168,106,.7)}
+  .btn-outline{background:transparent;border:1.5px solid rgba(255,253,250,.6);color:var(--cream)}
+  .btn-outline:hover{background:rgba(255,253,250,.12)}
+  .btn-ghost{background:var(--white);color:var(--cocoa);border:1.5px solid var(--cream-2)}
+  .btn-ghost:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+
+  /* ===== Intro overlay ===== */
+  #intro{
+    position:fixed;inset:0;z-index:9999;background:var(--cocoa);
+    display:flex;align-items:center;justify-content:center;flex-direction:column;
+    transition:opacity .8s ease .3s, visibility .8s ease .3s;
+  }
+  #intro.hide{opacity:0;visibility:hidden}
+  .intro-mark{font-family:var(--serif);color:var(--cream);font-size:2.4rem;letter-spacing:.5px;
+    opacity:0;transform:translateY(14px);animation:introUp .9s ease .2s forwards}
+  .intro-sub{font-family:var(--sans);color:var(--gold);text-transform:uppercase;letter-spacing:.4em;
+    font-size:.66rem;margin-top:12px;opacity:0;animation:introFade .9s ease .7s forwards}
+  .intro-line{width:0;height:1px;background:var(--gold);margin-top:20px;animation:introLine 1s ease .9s forwards}
+  @keyframes introUp{to{opacity:1;transform:none}}
+  @keyframes introFade{to{opacity:1}}
+  @keyframes introLine{to{width:90px}}
+
+  /* ===== Header ===== */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:900;
+    transition:background .35s ease, box-shadow .35s ease, padding .35s ease;
+    padding:18px 0;
+  }
+  header.scrolled{background:rgba(247,239,230,.92);backdrop-filter:blur(10px);box-shadow:0 6px 24px -18px rgba(58,36,25,.6);padding:12px 0}
+  .nav{display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand .name{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--cream);transition:color .35s ease}
+  .brand .tag{font-family:var(--sans);font-size:.58rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-top:4px}
+  header.scrolled .brand .name{color:var(--cocoa)}
+  .nav-links{display:none;align-items:center;gap:30px}
+  .nav-links a{font-size:.92rem;font-weight:400;color:var(--cream);position:relative;transition:color .3s ease}
+  header.scrolled .nav-links a{color:var(--cocoa-soft)}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1.5px;background:var(--gold);transition:width .3s ease}
+  .nav-links a:hover::after{width:100%}
+  .nav-call{display:none}
+  .burger{background:none;border:none;cursor:pointer;width:46px;height:46px;display:flex;flex-direction:column;justify-content:center;gap:5px;align-items:flex-end}
+  .burger span{display:block;height:2px;width:26px;background:var(--cream);border-radius:2px;transition:background .35s ease}
+  header.scrolled .burger span{background:var(--cocoa)}
+  @media(min-width:920px){
+    .nav-links{display:flex}
+    .nav-call{display:inline-flex}
+    .burger{display:none}
+  }
+  /* mobile menu */
+  .mobile-menu{
+    position:fixed;inset:0;z-index:950;background:var(--cocoa);
+    display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;
+    opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s ease;
+  }
+  .mobile-menu.open{opacity:1;visibility:visible}
+  .mobile-menu a{color:var(--cream);font-family:var(--serif);font-size:1.9rem;padding:10px 20px}
+  .mobile-menu .mm-actions{display:flex;flex-direction:column;gap:12px;margin-top:22px;width:min(320px,80vw)}
+  .mm-close{position:absolute;top:22px;right:22px;background:none;border:none;color:var(--cream);font-size:2rem;cursor:pointer;line-height:1;width:44px;height:44px}
+
+  /* ===== Hero ===== */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;background:var(--cocoa);overflow:hidden}
+  .hero-slides{position:absolute;inset:0}
+  .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.6s ease;transform:scale(1.06);animation:kenburns 20s ease-in-out infinite}
+  .hero-slide.active{opacity:1}
+  @keyframes kenburns{0%{transform:scale(1.04)}100%{transform:scale(1.14)}}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,28,20,.55) 0%,rgba(42,28,20,.62) 45%,rgba(42,28,20,.8) 100%)}
+  .hero-inner{position:relative;z-index:3;padding:130px 0 60px;width:100%}
+  .hero h1{color:var(--cream);font-size:clamp(2.6rem,9vw,5.4rem);font-weight:700;max-width:14ch}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero p.lead{color:rgba(255,253,250,.9);font-size:clamp(1.02rem,3.6vw,1.28rem);max-width:52ch;margin:22px 0 30px;font-weight:300}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px}
+  .hero-cta .btn{flex:1 1 auto;min-width:160px}
+  @media(min-width:560px){.hero-cta .btn{flex:0 0 auto}}
+  /* review widget */
+  .review-widget{
+    margin-top:30px;display:inline-flex;align-items:center;gap:14px;
+    background:rgba(255,253,250,.12);border:1px solid rgba(255,253,250,.22);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    padding:14px 20px;border-radius:16px;max-width:100%;
+  }
+  .review-widget .stars{color:var(--gold);letter-spacing:2px;font-size:1.05rem;line-height:1}
+  .review-widget .rw-text{color:var(--cream);font-size:.88rem;line-height:1.4}
+  .review-widget .rw-text b{font-weight:600}
+  .g-badge{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;color:rgba(255,253,250,.85);margin-top:2px}
+  .g-badge svg{width:15px;height:15px}
+
+  /* ===== Section base ===== */
+  section{position:relative}
+  .band{padding:84px 0}
+  .center{text-align:center}
+  .sec-head{max-width:640px;margin:0 auto 52px}
+  .sec-head.left{margin-left:0}
+  h2.title{font-size:clamp(2rem,6vw,3rem);color:var(--cocoa)}
+  .sec-head p{color:var(--muted);margin-top:14px;font-size:1.05rem}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* marquee strip */
+  .strip{background:var(--cocoa);color:var(--cream);overflow:hidden;padding:16px 0}
+  .strip-track{display:flex;gap:48px;white-space:nowrap;animation:marq 26s linear infinite;width:max-content}
+  .strip span{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--gold);display:inline-flex;align-items:center;gap:48px}
+  .strip span::after{content:"\2022";color:rgba(255,253,250,.4)}
+  @keyframes marq{to{transform:translateX(-50%)}}
+
+  /* ===== Services ===== */
+  .services-grid{display:grid;grid-template-columns:1fr;gap:24px}
+  @media(min-width:640px){.services-grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:980px){.services-grid{grid-template-columns:repeat(4,1fr)}}
+  .svc-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 30px -22px rgba(58,36,25,.5);transition:transform .3s ease,box-shadow .3s ease;display:flex;flex-direction:column}
+  .svc-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .svc-img{aspect-ratio:4/3;width:100%;object-fit:cover}
+  .svc-body{padding:22px 22px 26px}
+  .svc-body h3{font-size:1.5rem;color:var(--cocoa);display:flex;align-items:center;gap:9px}
+  .svc-body h3 svg{width:22px;height:22px;color:var(--rose-deep);flex:none}
+  .svc-body p{color:var(--muted);font-size:.94rem;margin-top:8px}
+
+  /* ===== About ===== */
+  .about{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+  @media(min-width:920px){.about{grid-template-columns:1fr 1fr;gap:60px}}
+  .about-imgs{position:relative}
+  .about-imgs img{border-radius:var(--radius);object-fit:cover;width:100%;box-shadow:var(--shadow)}
+  .about-imgs .a1{aspect-ratio:4/5}
+  .about-imgs .a2{position:absolute;bottom:-28px;right:-8px;width:46%;aspect-ratio:1;border:6px solid var(--cream)}
+  @media(min-width:920px){.about-imgs .a2{right:-28px}}
+  .about-text h2{color:var(--cocoa)}
+  .about-text p{color:var(--cocoa-soft);margin-top:16px}
+  .about-stats{display:flex;gap:32px;margin-top:28px;flex-wrap:wrap}
+  .about-stats .stat b{font-family:var(--serif);font-size:2.2rem;color:var(--rose-deep);display:block;line-height:1}
+  .about-stats .stat span{font-size:.8rem;text-transform:uppercase;letter-spacing:.18em;color:var(--muted)}
+
+  /* ===== Gallery ===== */
+  .gallery{background:var(--cream-2)}
+  .gal-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(min-width:760px){.gal-grid{grid-template-columns:repeat(3,1fr);gap:18px}}
+  .gal-grid figure{overflow:hidden;border-radius:16px;box-shadow:0 10px 30px -24px rgba(58,36,25,.6)}
+  .gal-grid img{aspect-ratio:1;width:100%;object-fit:cover;transition:transform .6s ease}
+  .gal-grid figure:hover img{transform:scale(1.07)}
+  .gal-grid .tall{grid-row:span 2}
+  .gal-grid .tall img{aspect-ratio:1/2}
+  @media(max-width:759px){.gal-grid .tall{grid-row:auto}.gal-grid .tall img{aspect-ratio:1}}
+
+  /* ===== Reviews ===== */
+  .rev-grid{display:grid;grid-template-columns:1fr;gap:22px}
+  @media(min-width:700px){.rev-grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:1000px){.rev-grid{grid-template-columns:repeat(3,1fr)}}
+  .rev-card{background:var(--white);border-radius:var(--radius);padding:28px 26px;box-shadow:0 10px 30px -24px rgba(58,36,25,.5);display:flex;flex-direction:column}
+  .rev-stars{color:var(--gold);letter-spacing:2px;font-size:1rem;margin-bottom:12px}
+  .rev-text{color:var(--cocoa-soft);font-size:.98rem;flex:1}
+  .rev-meta{display:flex;align-items:center;gap:12px;margin-top:20px}
+  .rev-av{width:42px;height:42px;border-radius:50%;background:var(--rose);color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:600;font-family:var(--serif);font-size:1.15rem;flex:none}
+  .rev-name{font-weight:500;font-size:.92rem;color:var(--cocoa)}
+  .rev-date{font-size:.78rem;color:var(--muted)}
+  .rev-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:44px;align-items:center}
+  .rev-actions .seeall{color:var(--rose-deep);font-weight:500;font-size:.95rem;text-decoration:underline;text-underline-offset:4px}
+
+  /* ===== Contact ===== */
+  .contact{background:var(--cocoa);color:var(--cream)}
+  .contact .title{color:var(--cream)}
+  .contact-grid{display:grid;grid-template-columns:1fr;gap:44px;align-items:start}
+  @media(min-width:920px){.contact-grid{grid-template-columns:1fr 1fr;gap:50px}}
+  .contact h2{color:var(--cream)}
+  .contact .lead{color:rgba(255,253,250,.85);margin-top:14px;max-width:46ch}
+  .contact-actions{display:flex;flex-direction:column;gap:14px;margin-top:30px;max-width:420px}
+  .info-row{display:flex;gap:14px;align-items:flex-start;margin-top:22px}
+  .info-row svg{width:22px;height:22px;color:var(--gold);flex:none;margin-top:2px}
+  .info-row .t{font-size:.72rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold)}
+  .info-row .v{color:var(--cream);font-size:1rem}
+  .socials{display:flex;gap:14px;margin-top:28px}
+  .socials a{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,253,250,.28);display:flex;align-items:center;justify-content:center;color:var(--cream);transition:background .3s ease,transform .3s ease,color .3s ease}
+  .socials a:hover{background:var(--gold);color:var(--cocoa);transform:translateY(-3px);border-color:var(--gold)}
+  .socials svg{width:20px;height:20px}
+  .map-embed{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(255,253,250,.18)}
+  .map-embed iframe{display:block;width:100%;height:380px;border:0}
+
+  /* ===== Footer ===== */
+  footer{background:#26170f;color:rgba(255,253,250,.75);padding:56px 0 28px}
+  .foot-top{display:grid;grid-template-columns:1fr;gap:34px}
+  @media(min-width:760px){.foot-top{grid-template-columns:2fr 1fr 1fr}}
+  .foot-brand .name{font-family:var(--serif);font-size:1.7rem;color:var(--cream)}
+  .foot-brand .tag{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-top:4px}
+  .foot-brand p{margin-top:16px;font-size:.92rem;max-width:38ch}
+  .foot-col h4{font-family:var(--sans);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:600}
+  .foot-col a{display:block;font-size:.94rem;margin-bottom:11px;color:rgba(255,253,250,.75);transition:color .25s ease}
+  .foot-col a:hover{color:var(--cream)}
+  .foot-social{display:flex;gap:12px;margin-top:4px}
+  .foot-social a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,253,250,.2);display:flex;align-items:center;justify-content:center;margin-bottom:0}
+  .foot-social a:hover{background:var(--gold);color:var(--cocoa)}
+  .foot-social svg{width:18px;height:18px}
+  .foot-bottom{border-top:1px solid rgba(255,253,250,.12);margin-top:40px;padding-top:22px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:.8rem}
+  .foot-bottom a{text-decoration:underline;text-underline-offset:3px}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- Intro overlay -->
+<div id="intro">
+  <div class="intro-mark">Glamour Cake</div>
+  <div class="intro-sub">Lyttelton &middot; Christchurch</div>
+  <div class="intro-line"></div>
+</div>
+
+<!-- Header -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="Glamour Cake home">
+      <span class="name">Glamour Cake</span>
+      <span class="tag">Made To Be Different</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#services">Our Cakes</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Visit</a>
+    </nav>
+    <a href="tel:+6433289004" class="btn btn-gold nav-call">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call Us
+    </a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mm-close" id="mmClose" aria-label="Close menu">&times;</button>
+  <a href="#services" class="mm-link">Our Cakes</a>
+  <a href="#gallery" class="mm-link">Gallery</a>
+  <a href="#about" class="mm-link">About</a>
+  <a href="#reviews" class="mm-link">Reviews</a>
+  <a href="#contact" class="mm-link">Visit</a>
+  <div class="mm-actions">
+    <a href="tel:+6433289004" class="btn btn-gold">Call +64 3 328 9004</a>
+    <a href="mailto:bree_scott@hotmail.co.nz" class="btn btn-outline">Email Us</a>
+  </div>
+</div>
+
+<!-- Hero -->
+<main id="top">
+<section class="hero" id="hero">
+  <div class="hero-slides" aria-hidden="true">
+    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1600&q=80')"></div>
+    <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=1600&q=80"></div>
+    <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=1600&q=80"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow" style="color:var(--gold)">Lyttelton &middot; Since 2016</p>
+    <h1>Cakes &amp; donuts made <em>to be different</em>.</h1>
+    <p class="lead">Handmade celebration cakes, gourmet cheesecakes and donuts you will not find anywhere else, baked fresh on Norwich Quay in the heart of Lyttelton.</p>
+    <div class="hero-cta">
+      <a href="tel:+6433289004" class="btn btn-gold">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Order a Cake
+      </a>
+      <a href="#services" class="btn btn-outline">See What We Bake</a>
+    </div>
+    <div class="review-widget" role="group" aria-label="Google review rating">
+      <span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <div>
+        <div class="rw-text"><b>4.6</b> from <b>670+</b> Google reviews</div>
+        <span class="g-badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg>
+          Rated on Google
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- Marquee strip -->
+<div class="strip" aria-hidden="true">
+  <div class="strip-track">
+    <span>Celebration Cakes</span><span>Gourmet Cheesecakes</span><span>Donuts Made To Be Different</span><span>Fresh Pies Daily</span><span>Wedding Cakes</span><span>Custom Orders</span>
+    <span>Celebration Cakes</span><span>Gourmet Cheesecakes</span><span>Donuts Made To Be Different</span><span>Fresh Pies Daily</span><span>Wedding Cakes</span><span>Custom Orders</span>
+  </div>
+</div>
+
+<!-- Services -->
+<section class="band" id="services">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <p class="eyebrow">What We Bake</p>
+      <h2 class="title">Baked fresh, glammed up</h2>
+      <p>From show-stopping wedding tiers to the cheesecake donuts people drive across Canterbury for, everything is handmade in our Lyttelton kitchen.</p>
+    </div>
+    <div class="services-grid">
+      <article class="svc-card reveal">
+        <img class="svc-img" loading="lazy" src="https://images.unsplash.com/photo-1519869325930-281384150729?w=1200&q=80" alt="Two tier white wedding cake decorated with fresh flowers" />
+        <div class="svc-body">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M8 4l4 4 4-4"/><path d="M4 22V12a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"/><path d="M4 16h16"/></svg>Wedding Cakes</h3>
+          <p>Elegant tiered cakes designed around your day, finished by hand with fresh florals, drips and delicate detail.</p>
+        </div>
+      </article>
+      <article class="svc-card reveal">
+        <img class="svc-img" loading="lazy" src="https://images.unsplash.com/photo-1558326567-98ae2405596b?w=1200&q=80" alt="Colourful decorated birthday celebration cake with candles" />
+        <div class="svc-body">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h16v-8H4z"/><path d="M4 13c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M12 8V5M8 8V6M16 8V6"/></svg>Celebration Cakes</h3>
+          <p>Birthdays, engagements and milestones. Rich flavours and custom themes made just how you imagine them.</p>
+        </div>
+      </article>
+      <article class="svc-card reveal">
+        <img class="svc-img" loading="lazy" src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=1200&q=80" alt="Slice of creamy gourmet cheesecake on a plate" />
+        <div class="svc-body">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M4 20l3-9h10l3 9"/><path d="M9 11l3-6 3 6"/></svg>Cheesecakes</h3>
+          <p>Custard, Neapolitan, Snickers and more. Our famous cheesecake slices are creamy, generous and never boring.</p>
+        </div>
+      </article>
+      <article class="svc-card reveal">
+        <img class="svc-img" loading="lazy" src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=1200&q=80" alt="Row of glazed gourmet donuts with creative toppings" />
+        <div class="svc-body">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>Donuts &amp; Desserts</h3>
+          <p>Loaded, filled and finished with sauce-filled syringes. The donuts made to be different that put us on the map.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="band" id="about" style="background:var(--white)">
+  <div class="wrap about">
+    <div class="about-imgs reveal">
+      <img class="a1" loading="lazy" src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=1200&q=80" alt="Baker piping frosting onto a cake in the kitchen" />
+      <img class="a2" loading="lazy" src="https://images.unsplash.com/photo-1587668178277-295251f900ce?w=1200&q=80" alt="Close up of decorated cupcakes with swirled frosting" />
+    </div>
+    <div class="about-text reveal">
+      <p class="eyebrow">Our Story</p>
+      <h2 class="title">Bree Scott, and a little Lyttelton kitchen</h2>
+      <p>Glamour Cake started in Bree's early twenties, back when it was all about wedding cakes. Bree soon noticed something, everyone just wanted a slice. So the wedding tiers made room for cake slices, then cheesecake slices, and then the donuts that Lyttelton now lines up for.</p>
+      <p>Nearly a decade on, Glamour Cake sits proudly inside the Lyttelton Bakery on Norwich Quay. Every cake, cheesecake and donut is still made by hand, with the same idea that started it all, treats that are made to be different.</p>
+      <div class="about-stats">
+        <div class="stat"><b>10 yrs</b><span>Baking in Lyttelton</span></div>
+        <div class="stat"><b>4.6&#9733;</b><span>Google rating</span></div>
+        <div class="stat"><b>11K+</b><span>Following on socials</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section class="band gallery" id="gallery">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <p class="eyebrow">The Cabinet</p>
+      <h2 class="title">A look inside the cabinet</h2>
+      <p>A little taste of what comes out of our kitchen. Follow along on Instagram for the daily line-up.</p>
+    </div>
+    <div class="gal-grid">
+      <figure class="tall reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=900&q=80" alt="Decorated layer cake with berries on a cake stand" /></figure>
+      <figure class="reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=900&q=80" alt="Assorted glazed donuts with sprinkles" /></figure>
+      <figure class="reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=900&q=80" alt="Cupcakes topped with swirled buttercream" /></figure>
+      <figure class="reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1607478900766-efe13248b125?w=900&q=80" alt="Chocolate cake slice with rich frosting" /></figure>
+      <figure class="reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=900&q=80" alt="Elegant white celebration cake with piped detail" /></figure>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="band" id="reviews">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <p class="eyebrow">Kind Words</p>
+      <h2 class="title">Loved across Canterbury</h2>
+      <p>Rated 4.6 stars from more than 670 Google reviews. Here is what a few of our customers had to say.</p>
+    </div>
+    <div class="rev-grid">
+      <article class="rev-card reveal">
+        <div class="rev-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="rev-text">"The only problem we have is that we can't get these delicious treats more often. Living an hour from Lyttelton means we only get to enjoy these once or twice a year. The donuts are so good, so worth the drive."</p>
+        <div class="rev-meta"><div class="rev-av">N</div><div><div class="rev-name">Natasha O</div><div class="rev-date">February 2026 &middot; Google</div></div></div>
+      </article>
+      <article class="rev-card reveal">
+        <div class="rev-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="rev-text">"Your biggest problem is going to be deciding what to have. The Steak, Bacon and Cheese pie was everything I hoped for. Also snapped up a Snickers Cheesecake donut. Imagine my delight when I cut into it and chocolate oozed out."</p>
+        <div class="rev-meta"><div class="rev-av">J</div><div><div class="rev-name">James B</div><div class="rev-date">February 2026 &middot; Google</div></div></div>
+      </article>
+      <article class="rev-card reveal">
+        <div class="rev-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="rev-text">"Glamour cake, just wow. I got my dad a piece of Neapolitan cheesecake, 12 out of 10, and a jam donut for Father's Day. Blown away, so yummy."</p>
+        <div class="rev-meta"><div class="rev-av">C</div><div><div class="rev-name">Courtney Y</div><div class="rev-date">September 2025 &middot; Google</div></div></div>
+      </article>
+      <article class="rev-card reveal">
+        <div class="rev-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="rev-text">"Eye candy for the sweet tooth. Savoury selection is good and the donuts are bloody awesome. And of course all the staff are top-notch."</p>
+        <div class="rev-meta"><div class="rev-av">D</div><div><div class="rev-name">Dean C</div><div class="rev-date">December 2025 &middot; Google</div></div></div>
+      </article>
+      <article class="rev-card reveal">
+        <div class="rev-stars" aria-label="4 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+        <p class="rev-text">"Easy to find on the main street of Lyttelton with lots of street parking. The mince and cheese pie had lovely flaky pastry, lots of meat filling and a generous amount of cheese, at perfect eating temperature."</p>
+        <div class="rev-meta"><div class="rev-av">Y</div><div><div class="rev-name">Yoyo</div><div class="rev-date">October 2025 &middot; Google</div></div></div>
+      </article>
+      <article class="rev-card reveal">
+        <div class="rev-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="rev-text">"Amazing glamorous cakes and treats. A must visit if you are in Lyttelton. The staff are so patient, pleasant and helpful. We will absolutely be back for more."</p>
+        <div class="rev-meta"><div class="rev-av">T</div><div><div class="rev-name">Traveller</div><div class="rev-date">2025 &middot; Google</div></div></div>
+      </article>
+    </div>
+    <div class="rev-actions">
+      <a class="btn btn-primary" href="https://www.google.com/search?q=Glamour+Cake+Lyttelton+reviews" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        Leave a Review
+      </a>
+      <a class="seeall" href="https://www.google.com/search?q=Glamour+Cake+Lyttelton+reviews" target="_blank" rel="noopener">See all our Google reviews</a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="band contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow" style="color:var(--gold)">Come Say Hi</p>
+      <h2 class="title">Visit us in Lyttelton</h2>
+      <p class="lead">Pop in to the cabinet, or get in touch to order a custom cake for your next celebration. We would love to bake for you.</p>
+      <div class="contact-actions">
+        <a href="tel:+6433289004" class="btn btn-gold">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call +64 3 328 9004
+        </a>
+        <a href="mailto:bree_scott@hotmail.co.nz" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          Email Us
+        </a>
+      </div>
+      <div class="info-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div><div class="t">Find Us</div><div class="v">8 Norwich Quay, Lyttelton 8082, Christchurch</div></div>
+      </div>
+      <div class="info-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <div><div class="t">Open</div><div class="v">Daily, 7:00am to 3:30pm</div></div>
+      </div>
+      <div class="socials" aria-label="Social media">
+        <a href="https://www.instagram.com/breeglamourcake/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 1.62c-3.15 0-3.5.01-4.74.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.04-.9-.19-1.39-.32-1.71a2.86 2.86 0 0 0-.69-1.06 2.86 2.86 0 0 0-1.06-.69c-.32-.13-.81-.28-1.71-.32-1.24-.06-1.59-.07-4.74-.07Zm0 2.76a5.3 5.3 0 1 1 0 10.6 5.3 5.3 0 0 1 0-10.6Zm0 8.74a3.44 3.44 0 1 0 0-6.88 3.44 3.44 0 0 0 0 6.88Zm6.74-8.94a1.24 1.24 0 1 1-2.48 0 1.24 1.24 0 0 1 2.48 0Z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/breeglamourcake/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/search?q=Glamour%20Cake%20Lyttelton" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.3 2.1 1.5 3.6 3.5 3.9v2.6c-1.2.1-2.4-.2-3.5-.8v6.1c0 3.1-2.5 5.7-5.6 5.7A5.6 5.6 0 0 1 5.3 14a5.6 5.6 0 0 1 6.2-5.6v2.7a2.9 2.9 0 0 0-3.5 2.9 2.9 2.9 0 1 0 5.8.1V3h2.7Z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="map-embed">
+        <iframe title="Map showing Glamour Cake, 8 Norwich Quay, Lyttelton" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Glamour+Cake+8+Norwich+Quay+Lyttelton+Christchurch&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="name">Glamour Cake</div>
+        <div class="tag">Made To Be Different</div>
+        <p>Handmade cakes, cheesecakes and donuts, baked fresh in the Lyttelton Bakery on Norwich Quay.</p>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/breeglamourcake/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 4.54a5.3 5.3 0 1 0 0 10.6 5.3 5.3 0 0 0 0-10.6Zm0 8.74a3.44 3.44 0 1 1 0-6.88 3.44 3.44 0 0 1 0 6.88Zm6.74-8.94a1.24 1.24 0 1 1-2.48 0 1.24 1.24 0 0 1 2.48 0Z"/></svg></a>
+          <a href="https://www.facebook.com/breeglamourcake/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg></a>
+          <a href="https://www.tiktok.com/search?q=Glamour%20Cake%20Lyttelton" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.3 2.1 1.5 3.6 3.5 3.9v2.6c-1.2.1-2.4-.2-3.5-.8v6.1c0 3.1-2.5 5.7-5.6 5.7A5.6 5.6 0 0 1 5.3 14a5.6 5.6 0 0 1 6.2-5.6v2.7a2.9 2.9 0 0 0-3.5 2.9 2.9 2.9 0 1 0 5.8.1V3h2.7Z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <a href="#services">Our Cakes</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Visit</a>
+      </div>
+      <div class="foot-col">
+        <h4>Get In Touch</h4>
+        <a href="tel:+6433289004">+64 3 328 9004</a>
+        <a href="mailto:bree_scott@hotmail.co.nz">bree_scott@hotmail.co.nz</a>
+        <a href="https://www.google.com/maps?q=Glamour+Cake+8+Norwich+Quay+Lyttelton" target="_blank" rel="noopener">8 Norwich Quay, Lyttelton</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="yr"></span> Glamour Cake, Lyttelton. All rights reserved.</span>
+      <span><a href="terms.html">Terms</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Intro
+  window.addEventListener('load', function(){
+    setTimeout(function(){ document.getElementById('intro').classList.add('hide'); }, 1500);
+  });
+  // Header scroll
+  var header = document.getElementById('header');
+  function onScroll(){ header.classList.toggle('scrolled', window.scrollY > 40); }
+  window.addEventListener('scroll', onScroll); onScroll();
+  // Mobile menu
+  var burger=document.getElementById('burger'), mm=document.getElementById('mobileMenu'), mmClose=document.getElementById('mmClose');
+  function openMenu(){mm.classList.add('open');burger.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
+  function closeMenu(){mm.classList.remove('open');burger.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+  burger.addEventListener('click',openMenu); mmClose.addEventListener('click',closeMenu);
+  document.querySelectorAll('.mm-link').forEach(function(a){a.addEventListener('click',closeMenu);});
+  // Hero slideshow (lazy-load bg after first paint)
+  var slides=document.querySelectorAll('.hero-slide'), idx=0;
+  slides.forEach(function(s){ if(s.dataset.bg){ var i=new Image(); i.onload=function(){s.style.backgroundImage="url('"+s.dataset.bg+"')";}; i.src=s.dataset.bg; }});
+  setInterval(function(){ slides[idx].classList.remove('active'); idx=(idx+1)%slides.length; slides[idx].classList.add('active'); },5000);
+  // Reveal on scroll
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  // Year
+  document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
