@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Glamour Cake | Cakes, Cheesecakes &amp; Donuts Made To Be Different, Lyttelton</title>
 <meta name="description" content="Glamour Cake in Lyttelton, Christchurch. Handmade celebration cakes, gourmet cheesecakes, donuts made to be different and fresh pies. Order custom cakes with Bree Scott." />
-<meta name="theme-color" content="#3a2419" />
+<meta name="theme-color" content="#17130D" />
 <meta property="og:title" content="Glamour Cake | Lyttelton, Christchurch" />
 <meta property="og:description" content="Handmade cakes, cheesecakes and donuts made to be different, right on Norwich Quay in Lyttelton." />
 <meta property="og:type" content="website" />
@@ -14,16 +14,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --cream:#f7efe6;
-    --cream-2:#efe3d4;
-    --cocoa:#3a2419;
-    --cocoa-soft:#54382a;
-    --rose:#c98a7d;
-    --rose-deep:#b06f61;
-    --gold:#c9a86a;
-    --ink:#2a1c14;
-    --muted:#7a6555;
-    --white:#fffdfa;
+    --cream:#F7F1E7;
+    --cream-2:#EFE6D6;
+    --cocoa:#17130D;
+    --cocoa-soft:#2A2318;
+    --rose:#C9A24A;
+    --rose-deep:#9E7A2A;
+    --gold:#C9A24A;
+    --ink:#1A150F;
+    --muted:#7A6C57;
+    --white:#FFFDF9;
     --shadow:0 18px 50px -20px rgba(58,36,25,.45);
     --radius:20px;
     --serif:"Cormorant Garamond",Georgia,serif;
@@ -249,14 +249,39 @@
   .foot-bottom{border-top:1px solid rgba(255,253,250,.12);margin-top:40px;padding-top:22px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:.8rem}
   .foot-bottom a{text-decoration:underline;text-underline-offset:3px}
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+  /* ===== Intro logo ===== */
+  .intro-logo{width:min(300px,64vw);height:auto;opacity:0;transform:translateY(14px) scale(.98);animation:introUp 1s ease .2s forwards;filter:drop-shadow(0 10px 40px rgba(201,162,74,.25))}
+
+  /* ===== Instagram embeds ===== */
+  .ig-embed{max-width:400px;margin:0 auto;border-radius:22px;overflow:hidden;background:#000;box-shadow:0 26px 60px -28px rgba(0,0,0,.7);border:1px solid rgba(201,162,74,.35)}
+  .ig-embed iframe{width:100%;height:640px;border:0;display:block;background:#fff}
+
+  /* ===== Featured video ===== */
+  .video-feature-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+  @media(min-width:920px){.video-feature-grid{grid-template-columns:1.05fr .95fr;gap:60px}}
+  .vf-copy .title{margin:6px 0 16px}
+
+  /* ===== About video ===== */
+  .about-video{position:relative}
+  .about-video-cap{text-align:center;margin-top:16px;font-size:.9rem;color:var(--muted);font-weight:500;letter-spacing:.02em}
+
+  /* ===== Gallery masonry (all photos) ===== */
+  .gal-masonry{column-count:2;column-gap:14px}
+  @media(min-width:680px){.gal-masonry{column-count:3;column-gap:16px}}
+  @media(min-width:1000px){.gal-masonry{column-count:4;column-gap:16px}}
+  .gal-masonry figure{break-inside:avoid;margin:0 0 16px;overflow:hidden;border-radius:16px;box-shadow:0 12px 32px -22px rgba(0,0,0,.6)}
+  .gal-masonry img{width:100%;height:auto;display:block;transition:transform .6s ease,filter .4s ease}
+  .gal-masonry figure:hover img{transform:scale(1.06);filter:saturate(1.06)}
+.vf-logo{width:170px;max-width:56vw;height:auto;display:block;margin:0 0 18px;filter:drop-shadow(0 8px 26px rgba(0,0,0,.35))}
+.foot-logo{width:210px;max-width:70%;height:auto;display:block;margin-bottom:4px}
 </style>
 </head>
 <body>
 
 <!-- Intro overlay -->
 <div id="intro">
-  <div class="intro-mark">Glamour Cake</div>
-  <div class="intro-sub">Lyttelton &middot; Christchurch</div>
+  <img class="intro-logo" src="img/logo.png" alt="Glamour Cake — Lyttelton Bakery" />
   <div class="intro-line"></div>
 </div>
 
@@ -302,9 +327,8 @@
 <main id="top">
 <section class="hero" id="hero">
   <div class="hero-slides" aria-hidden="true">
-    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1600&q=80')"></div>
-    <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=1600&q=80"></div>
-    <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=1600&q=80"></div>
+    <div class="hero-slide active" style="background-image:url('img/p16.jpg')"></div>
+    <div class="hero-slide" data-bg="img/p0.jpg"></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="wrap hero-inner">
@@ -340,6 +364,27 @@
   </div>
 </div>
 
+<!-- Featured video -->
+<section class="band video-feature" id="watch" style="background:var(--cocoa)">
+  <div class="wrap video-feature-grid">
+    <div class="vf-copy reveal">
+      <img class="vf-logo" src="img/logo.png" alt="Glamour Cake — Lyttelton Bakery" />
+      <p class="eyebrow" style="color:var(--gold)">Straight from the kitchen</p>
+      <h2 class="title" style="color:var(--cream)">See what "made to be different" looks like</h2>
+      <p style="color:rgba(255,253,250,.82)">A little peek at the cakes, cheesecakes and donuts coming out of our Lyttelton kitchen. Give it a watch, then come grab a slice.</p>
+      <div style="margin-top:26px;display:flex;flex-wrap:wrap;gap:14px">
+        <a href="https://www.instagram.com/breeglamourcake/" target="_blank" rel="noopener" class="btn btn-gold">Follow on Instagram</a>
+        <a href="#services" class="btn btn-outline">See what we bake</a>
+      </div>
+    </div>
+    <div class="vf-video reveal">
+      <div class="ig-embed">
+        <iframe src="https://www.instagram.com/p/DbT10LKTlrx/embed" title="Glamour Cake — Instagram reel" loading="lazy" scrolling="no" allowtransparency="true" allow="encrypted-media"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Services -->
 <section class="band" id="services">
   <div class="wrap">
@@ -350,28 +395,28 @@
     </div>
     <div class="services-grid">
       <article class="svc-card reveal">
-        <img class="svc-img" loading="lazy" src="https://images.unsplash.com/photo-1519869325930-281384150729?w=1200&q=80" alt="Two tier white wedding cake decorated with fresh flowers" />
+        <img class="svc-img" loading="lazy" src="img/p0.jpg" alt="Two tier white wedding cake decorated with fresh flowers" />
         <div class="svc-body">
           <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M8 4l4 4 4-4"/><path d="M4 22V12a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"/><path d="M4 16h16"/></svg>Wedding Cakes</h3>
           <p>Elegant tiered cakes designed around your day, finished by hand with fresh florals, drips and delicate detail.</p>
         </div>
       </article>
       <article class="svc-card reveal">
-        <img class="svc-img" loading="lazy" src="https://images.unsplash.com/photo-1558326567-98ae2405596b?w=1200&q=80" alt="Colourful decorated birthday celebration cake with candles" />
+        <img class="svc-img" loading="lazy" src="img/p11.jpg" alt="Colourful decorated birthday celebration cake with candles" />
         <div class="svc-body">
           <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h16v-8H4z"/><path d="M4 13c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M12 8V5M8 8V6M16 8V6"/></svg>Celebration Cakes</h3>
           <p>Birthdays, engagements and milestones. Rich flavours and custom themes made just how you imagine them.</p>
         </div>
       </article>
       <article class="svc-card reveal">
-        <img class="svc-img" loading="lazy" src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=1200&q=80" alt="Slice of creamy gourmet cheesecake on a plate" />
+        <img class="svc-img" loading="lazy" src="img/p1.jpg" alt="Slice of creamy gourmet cheesecake on a plate" />
         <div class="svc-body">
           <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M4 20l3-9h10l3 9"/><path d="M9 11l3-6 3 6"/></svg>Cheesecakes</h3>
           <p>Custard, Neapolitan, Snickers and more. Our famous cheesecake slices are creamy, generous and never boring.</p>
         </div>
       </article>
       <article class="svc-card reveal">
-        <img class="svc-img" loading="lazy" src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=1200&q=80" alt="Row of glazed gourmet donuts with creative toppings" />
+        <img class="svc-img" loading="lazy" src="img/p4.jpg" alt="Row of glazed gourmet donuts with creative toppings" />
         <div class="svc-body">
           <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>Donuts &amp; Desserts</h3>
           <p>Loaded, filled and finished with sauce-filled syringes. The donuts made to be different that put us on the map.</p>
@@ -384,9 +429,11 @@
 <!-- About -->
 <section class="band" id="about" style="background:var(--white)">
   <div class="wrap about">
-    <div class="about-imgs reveal">
-      <img class="a1" loading="lazy" src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=1200&q=80" alt="Baker piping frosting onto a cake in the kitchen" />
-      <img class="a2" loading="lazy" src="https://images.unsplash.com/photo-1587668178277-295251f900ce?w=1200&q=80" alt="Close up of decorated cupcakes with swirled frosting" />
+    <div class="about-video reveal">
+      <div class="ig-embed">
+        <iframe src="https://www.instagram.com/p/C0AA1KySyEJ/embed" title="Find Glamour Cake — Instagram" loading="lazy" scrolling="no" allowtransparency="true" allow="encrypted-media"></iframe>
+      </div>
+      <p class="about-video-cap">▶ Watch: how to find us in the Lyttelton Bakery</p>
     </div>
     <div class="about-text reveal">
       <p class="eyebrow">Our Story</p>
@@ -410,12 +457,26 @@
       <h2 class="title">A look inside the cabinet</h2>
       <p>A little taste of what comes out of our kitchen. Follow along on Instagram for the daily line-up.</p>
     </div>
-    <div class="gal-grid">
-      <figure class="tall reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=900&q=80" alt="Decorated layer cake with berries on a cake stand" /></figure>
-      <figure class="reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=900&q=80" alt="Assorted glazed donuts with sprinkles" /></figure>
-      <figure class="reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=900&q=80" alt="Cupcakes topped with swirled buttercream" /></figure>
-      <figure class="reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1607478900766-efe13248b125?w=900&q=80" alt="Chocolate cake slice with rich frosting" /></figure>
-      <figure class="reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=900&q=80" alt="Elegant white celebration cake with piped detail" /></figure>
+    <div class="gal-masonry reveal">
+      <figure><img loading="lazy" src="img/p0.jpg" alt="Layered celebration cake slice" /></figure>
+      <figure><img loading="lazy" src="img/p2.jpg" alt="Fresh donuts and pastries" /></figure>
+      <figure><img loading="lazy" src="img/p16.jpg" alt="Dessert with Lyttelton harbour behind" /></figure>
+      <figure><img loading="lazy" src="img/p5.jpg" alt="Cabinet full of glazed tarts" /></figure>
+      <figure><img loading="lazy" src="img/p8.jpg" alt="Cream-filled pastries" /></figure>
+      <figure><img loading="lazy" src="img/p1.jpg" alt="Plated chocolate slice with strawberries" /></figure>
+      <figure><img loading="lazy" src="img/p11.jpg" alt="Rich chocolate cake slices" /></figure>
+      <figure><img loading="lazy" src="img/p9.jpg" alt="Strawberry tarts" /></figure>
+      <figure><img loading="lazy" src="img/p13.jpg" alt="Choux cream puffs" /></figure>
+      <figure><img loading="lazy" src="img/p3.jpg" alt="Strawberry tart slice on a plate" /></figure>
+      <figure><img loading="lazy" src="img/p18.jpg" alt="Cannoli filled with cream" /></figure>
+      <figure><img loading="lazy" src="img/p4.jpg" alt="Profiteroles with cream" /></figure>
+      <figure><img loading="lazy" src="img/p12.jpg" alt="Chocolate-drizzled cream puffs" /></figure>
+      <figure><img loading="lazy" src="img/p6.jpg" alt="Glamour Cake signage" /></figure>
+      <figure><img loading="lazy" src="img/p7.jpg" alt="Dessert jars at the market stall" /></figure>
+      <figure><img loading="lazy" src="img/p15.jpg" alt="Display of cream puffs" /></figure>
+      <figure><img loading="lazy" src="img/p14.jpg" alt="Nutella-filled pastry" /></figure>
+      <figure><img loading="lazy" src="img/p17.jpg" alt="Cream horns and cannoli" /></figure>
+      <figure><img loading="lazy" src="img/p10.jpg" alt="Glamour Cake at the Lyttelton market" /></figure>
     </div>
   </div>
 </section>
@@ -520,8 +581,7 @@
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <div class="name">Glamour Cake</div>
-        <div class="tag">Made To Be Different</div>
+        <img class="foot-logo" src="img/logo.png" alt="Glamour Cake — Lyttelton Bakery" />
         <p>Handmade cakes, cheesecakes and donuts, baked fresh in the Lyttelton Bakery on Norwich Quay.</p>
         <div class="foot-social">
           <a href="https://www.instagram.com/breeglamourcake/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 4.54a5.3 5.3 0 1 0 0 10.6 5.3 5.3 0 0 0 0-10.6Zm0 8.74a3.44 3.44 0 1 1 0-6.88 3.44 3.44 0 0 1 0 6.88Zm6.74-8.94a1.24 1.24 0 1 1-2.48 0 1.24 1.24 0 0 1 2.48 0Z"/></svg></a>
